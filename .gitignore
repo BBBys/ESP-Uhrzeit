@@ -36,3 +36,4 @@ privat.*
 privat.ini
 *.bak
 privat.ini.bak
+/.vscode
