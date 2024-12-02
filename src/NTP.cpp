@@ -6,16 +6,11 @@
  * @author Dr. Burkhard Borys, Zeller Ring 15, 34246 Vellmar, Deutschland
  * @copyright Copyright (c) 2024 B. Borys
  */
-#define _USE_NTP_
 #ifdef _USE_NTP_
 #include <Arduino.h>
 #include <WiFi.h>
 #include <time.h>
 #include <NTP.h>
-// NTP-Server aus dem Pool: #define Zeitserver "de.pool.ntp.org"
-// oder eigener Server:
-#define Zeitserver "192.168.1.1"
-//#define Zeitzone "CET-1CEST,M3.5.0/02,M10.5.0/03"
 WiFiUDP wifiUdp;
 NTP ntp(wifiUdp);
 void setup()

@@ -6,21 +6,16 @@
  * @author Dr. Burkhard Borys, Zeller Ring 15, 34246 Vellmar, Deutschland
  * @copyright Copyright (c) 2024 B. Borys
  */
-// #define _USE_TIME_
 #ifdef _USE_TIME_
 #include <Arduino.h>
 #include <WiFi.h>
 #include <time.h>
-//  Zeitserver aus dem Pool: #define Zeitserver "de.pool.ntp.org"
-//  Zeitserver lokal:
-#define Zeitserver "192.168.1.1"
-#define Zeitzone "CET-1CEST,M3.5.0/02,M10.5.0/03"
 void setup()
 {
   int i = 0;
   Serial.begin(115200);
   // Parameter für die Zeit
-  configTzTime(Zeitzone, Zeitserver);
+  configTzTime(TZONE, TSERVER);
   WiFi.begin(WLANSSID, WLANPWD);
   while (WiFi.status() != WL_CONNECTED)
   {
@@ -34,9 +29,7 @@ void setup()
     }
   }
   log_i("WLAN OK");
-  WiFi.printDiag(Serial);
 }
-static unsigned long Vorher = 0;
 void loop()
 {
   time_t ZeitTime;
